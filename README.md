@@ -17,7 +17,7 @@
   - **MusicBrainz**（开放数据库，免密钥）：ISRC、发行厂牌、词曲作者、部分 publisher 关系
   - **Spotify Web API**（需免费 Client Credentials）：ISRC、专辑 label（Master Owner 重要线索）、封面、流行度
   - **QQ音乐**（网页端公开接口，免密钥）：中文歌曲覆盖好，提供唱片公司（Master Owner 线索）、发行时间
-  - **The MLC Public Search API**（官方免费 API，注册即用）：publishers（含份额/IPI）、词曲作者、ISWC，覆盖 5500 万+ 作品
+  - **The MLC Public Search API**（官方 API，付费数据计划：约 $100 设置费 + $25/月）：publishers（含份额/IPI）、词曲作者、ISWC，覆盖 5500 万+ 作品；免费替代是其网页版 Public Work Search 手动查询
   - **Songview（ASCAP + BMI 联合库）/ BMI Repertoire**：尽力自动尝试；被反爬拦截时明确标注「需手动检索」并给出直达入口
   - **SESAC / HFA Songfile**：提供手动检索入口
 - 每个数据源单独汇报状态（成功 / 部分数据 / 未找到 / 需手动检索 / 未配置）
@@ -68,7 +68,7 @@ npm start              # http://localhost:3000
 |---|---|---|
 | `APP_ID` / `APP_SECRET` / `DATABASE_URL` | 是（可填占位值） | 框架启动校验用；本工具不使用数据库 |
 | `SPOTIFY_CLIENT_ID` / `SPOTIFY_CLIENT_SECRET` | 建议 | [Spotify Dashboard](https://developer.spotify.com/dashboard) 免费申请，显著提升检索质量 |
-| `MLC_USERNAME` / `MLC_PASSWORD` | 建议 | [The MLC Data Programs](https://www.themlc.com/dataprograms) 免费注册 Public Search API，可查 publishers 份额 |
+| `MLC_USERNAME` / `MLC_PASSWORD` | 可选（付费） | [The MLC Data Programs](https://www.themlc.com/dataprograms) 注册 Public Search API（付费数据计划），可查 publishers 份额 |
 | `TAVILY_API_KEY` 或 `SERPAPI_KEY` | 可选 | 启用「公开报价案例」实时检索 |
 
 > **安全提示**：`.env` 已在 `.gitignore` 中，切勿把真实密钥提交到 GitHub。
